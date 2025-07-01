@@ -2,4 +2,16 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+#calculator {
+    width: 450px;
+    height: 700px;
+    background-color: grey;
+    display: flex;
+    
 }
