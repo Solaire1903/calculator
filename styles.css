@@ -12,6 +12,7 @@ body {
     width: 450px;
     height: 650px;
     background-color: grey;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
