@@ -30,3 +30,12 @@ function operate(number1, number2, operator) {
 let number1;
 let number2;
 let operator;
+let displayValue;
+
+const buttonGrid = document.querySelector("#button-container");
+//Event for clicking the buttons
+buttonGrid.addEventListener("click", (e) => {
+    let target = e.target;
+
+    
+});
