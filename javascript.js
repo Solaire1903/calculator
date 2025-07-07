@@ -32,10 +32,14 @@ let number2;
 let operator;
 let displayValue;
 
+const display = document.querySelector("#display");
 const buttonGrid = document.querySelector("#button-container");
 //Event for clicking the buttons
 buttonGrid.addEventListener("click", (e) => {
-    let target = e.target;
+    const target = e.target;
 
-    
+    if (target.classList.contains("button-digit")) {
+        display.textContent += target.textContent;
+        displayValue = display.textContent;
+    }
 });
