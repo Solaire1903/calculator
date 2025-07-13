@@ -34,7 +34,7 @@ function updateDisplay(content) {
     }
 
     display.textContent += content;
-    displayValue = display.textContent;
+    displayValue = parseInt(display.textContent);
 }
 
 function clearDisplay() {
