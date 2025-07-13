@@ -28,8 +28,9 @@ function operate(number1, number2, operator) {
 }
 
 function updateDisplay(content) {
-    if (content.length > 16) {
+    if (content.toString().length > 16) {
         alert("Number too big for the display!");
+        clearCalculatorState();
         return;
     }
     
@@ -38,7 +39,7 @@ function updateDisplay(content) {
         displayValue = null;
     }
     else {
-        displayValue = parseInt(display.textContent);
+        displayValue = content;
     }
     
 }
