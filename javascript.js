@@ -81,13 +81,12 @@ buttonGrid.addEventListener("click", (e) => {
                 if (operator && displayValue) {
                     number2 = displayValue;
                     const result = operate(number1, number2, operator);
-                    clearDisplay();
-                    display.textContent = result;
-                    displayValue = result;
+                    clearCalculatorState();
+                    updateDisplay(result);
                 }
                 break;
             case "button-del":
-                clearDisplay();
+                clearCalculatorState();
                 break;
         }
     }
