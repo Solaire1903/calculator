@@ -55,6 +55,11 @@ buttonGrid.addEventListener("click", (e) => {
     if (target.classList.contains("button-digit")) {
         updateDisplay(target.textContent);
     }
+    else if (target.classList.contains("button-operator")) {
+        if (!operator) {
+            operator = target.textContent;
+        }
+    }
     else {
         switch (target.id) {               
             case "button-del":
