@@ -43,7 +43,7 @@ function updateDisplay(content) {
     
 }
 
-function clearDisplay() {
+function clearCalculatorState() {
     display.textContent = "";
     number1 = null;
     number2 = null;
