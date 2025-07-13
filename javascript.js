@@ -57,7 +57,8 @@ buttonGrid.addEventListener("click", (e) => {
     const target = e.target;
 
     if (target.classList.contains("button-digit")) {
-        updateDisplay(target.textContent);
+        const content = display.textContent + target.textContent;
+        updateDisplay(content);
     }
     else if (target.classList.contains("button-operator")) {
         if (operator || !displayValue) {
