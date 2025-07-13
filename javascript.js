@@ -39,12 +39,16 @@ function updateDisplay(content) {
 
 function clearDisplay() {
     display.textContent = "";
+    number1 = null;
+    number2 = null;
+    operator = "";
+    displayValue = null;
 }
 
 let number1 = null;
 let number2 = null;
 let operator = "";
-let displayValue = 0;;
+let displayValue = null;
 
 const display = document.querySelector("#display");
 const buttonGrid = document.querySelector("#button-container");
@@ -56,8 +60,13 @@ buttonGrid.addEventListener("click", (e) => {
         updateDisplay(target.textContent);
     }
     else if (target.classList.contains("button-operator")) {
+        if (displayValue) {
+            number1 = displayValue;
+            console.log(number1);
+        }
         if (!operator && number1) {
             operator = target.textContent;
+            console.log(operator);
         }
     }
     else {
