@@ -45,11 +45,10 @@ function updateDisplay(content) {
 }
 
 function clearCalculatorState() {
-    display.textContent = "";
     number1 = null;
     number2 = null;
     operator = "";
-    displayValue = null;
+    updateDisplay("");
 }
 
 let number1 = null;
