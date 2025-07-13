@@ -32,9 +32,15 @@ function updateDisplay(content) {
         alert("Number too big for the display!");
         return;
     }
-
+    
     display.textContent = content;
-    displayValue = parseInt(display.textContent);
+    if (!content) {
+        displayValue = null;
+    }
+    else {
+        displayValue = parseInt(display.textContent);
+    }
+    
 }
 
 function clearDisplay() {
@@ -67,8 +73,7 @@ buttonGrid.addEventListener("click", (e) => {
 
         number1 = displayValue;
         operator = target.textContent;
-        display.textContent = "";
-        displayValue = null;
+        updateDisplay("");
     }
     else {
         switch (target.id) {     
