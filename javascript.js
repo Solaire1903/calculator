@@ -27,6 +27,15 @@ function operate(number1, number2, operator) {
     }
 }
 
+function updateDisplay(content) {
+    display.textContent += content;
+    displayValue = display.textContent;
+}
+
+function clearDisplay() {
+    display.textContent = "";
+}
+
 let number1;
 let number2;
 let operator;
@@ -39,7 +48,12 @@ buttonGrid.addEventListener("click", (e) => {
     const target = e.target;
 
     if (target.classList.contains("button-digit")) {
-        display.textContent += target.textContent;
-        displayValue = display.textContent;
+        updateDisplay(target.textContent);
+    }
+    else {
+        switch (target.id) {
+            case "button-del":
+                clearDisplay();
+        }
     }
 });
