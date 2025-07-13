@@ -41,7 +41,6 @@ function updateDisplay(content) {
     else {
         displayValue = parseInt(content);
     }
-    
 }
 
 function clearCalculatorState() {
@@ -80,7 +79,7 @@ buttonGrid.addEventListener("click", (e) => {
             case "button-equals":
                 if (operator && displayValue) {
                     number2 = displayValue;
-                    const result = operate(number1, number2, operator);
+                    const result = operate(number1, number2, operator).toFixed(2);
                     clearCalculatorState();
                     updateDisplay(result);
                 }
