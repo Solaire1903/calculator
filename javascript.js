@@ -35,7 +35,7 @@ function updateDisplay(content) {
     }
     
     display.textContent = content;
-    if (!content) {
+    if (content === "") {
         displayValue = null;
     }
     else {
@@ -66,7 +66,7 @@ buttonGrid.addEventListener("click", (e) => {
         updateDisplay(content);
     }
     else if (target.classList.contains("button-operator")) {
-        if (operator || !displayValue) {
+        if (operator !== "" || displayValue === null) {
             return;
         }
 
@@ -77,8 +77,13 @@ buttonGrid.addEventListener("click", (e) => {
     else {
         switch (target.id) {     
             case "button-equals":
-                if (operator && displayValue) {
+                if (operator !== "" && displayValue !== null) {
                     number2 = displayValue;
+                    if (operator === "/" && number2 === 0) {
+                        alert("Don't divide by zero!");
+                        clearCalculatorState();
+                        return;
+                    }
                     const result = operate(number1, number2, operator).toFixed(2);
                     clearCalculatorState();
                     updateDisplay(result);
