@@ -28,6 +28,11 @@ function operate(number1, number2, operator) {
 }
 
 function updateDisplay(content) {
+    if (display.textContent.length >= 16) {
+        alert("Number too big for the display!");
+        return;
+    }
+
     display.textContent += content;
     displayValue = display.textContent;
 }
