@@ -46,7 +46,6 @@ function updateDisplay(content) {
 function clearCalculatorState() {
     number1 = null;
     number2 = null;
-    result = null;
     operator = "";
     updateDisplay("");
 }
@@ -64,6 +63,10 @@ buttonGrid.addEventListener("click", (e) => {
     const target = e.target;
 
     if (target.classList.contains("button-digit")) {
+        if (result !== null) {
+            clearCalculatorState();
+            result = null;
+        }
         const content = display.textContent + target.textContent;
         updateDisplay(content);
     }
@@ -72,6 +75,7 @@ buttonGrid.addEventListener("click", (e) => {
             return;
         }
 
+        result = null;
         number1 = displayValue;
         operator = target.textContent;
         updateDisplay("");
