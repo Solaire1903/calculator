@@ -52,8 +52,19 @@ buttonGrid.addEventListener("click", (e) => {
     }
     else {
         switch (target.id) {
+            case "button-plus":
+                break;
+            case "button-minus":
+                break;
+            case "button-asterisk":
+                break;
+            case "button-slash":
+                break;
+            case "button-equals":
+                break;                
             case "button-del":
                 clearDisplay();
+                break;
         }
     }
 });
