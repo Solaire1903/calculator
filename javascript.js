@@ -56,7 +56,7 @@ buttonGrid.addEventListener("click", (e) => {
         updateDisplay(target.textContent);
     }
     else if (target.classList.contains("button-operator")) {
-        if (!operator) {
+        if (!operator && number1) {
             operator = target.textContent;
         }
     }
