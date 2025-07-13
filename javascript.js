@@ -60,14 +60,13 @@ buttonGrid.addEventListener("click", (e) => {
         updateDisplay(target.textContent);
     }
     else if (target.classList.contains("button-operator")) {
-        if (displayValue) {
-            number1 = displayValue;
-            console.log(number1);
+        if (operator || !displayValue) {
+            return;
         }
-        if (!operator && number1) {
-            operator = target.textContent;
-            console.log(operator);
-        }
+
+        number1 = displayValue;
+        operator = target.textContent;
+        display.textContent = "";
     }
     else {
         switch (target.id) {               
