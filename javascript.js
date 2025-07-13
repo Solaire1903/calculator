@@ -41,10 +41,10 @@ function clearDisplay() {
     display.textContent = "";
 }
 
-let number1;
-let number2;
-let operator;
-let displayValue;
+let number1 = null;
+let number2 = null;
+let operator = "";
+let displayValue = 0;;
 
 const display = document.querySelector("#display");
 const buttonGrid = document.querySelector("#button-container");
