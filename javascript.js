@@ -56,17 +56,7 @@ buttonGrid.addEventListener("click", (e) => {
         updateDisplay(target.textContent);
     }
     else {
-        switch (target.id) {
-            case "button-plus":
-                break;
-            case "button-minus":
-                break;
-            case "button-asterisk":
-                break;
-            case "button-slash":
-                break;
-            case "button-equals":
-                break;                
+        switch (target.id) {               
             case "button-del":
                 clearDisplay();
                 break;
