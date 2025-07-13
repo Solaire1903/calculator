@@ -46,12 +46,14 @@ function updateDisplay(content) {
 function clearCalculatorState() {
     number1 = null;
     number2 = null;
+    result = null;
     operator = "";
     updateDisplay("");
 }
 
 let number1 = null;
 let number2 = null;
+let result = null;
 let operator = "";
 let displayValue = null;
 
@@ -84,7 +86,8 @@ buttonGrid.addEventListener("click", (e) => {
                         clearCalculatorState();
                         return;
                     }
-                    const result = operate(number1, number2, operator).toFixed(2);
+                    result = operate(number1, number2, operator);
+                    result = Math.round(result * 100) / 100;
                     clearCalculatorState();
                     updateDisplay(result);
                 }
