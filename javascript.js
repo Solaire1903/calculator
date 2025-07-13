@@ -67,9 +67,19 @@ buttonGrid.addEventListener("click", (e) => {
         number1 = displayValue;
         operator = target.textContent;
         display.textContent = "";
+        displayValue = null;
     }
     else {
-        switch (target.id) {               
+        switch (target.id) {     
+            case "button-equals":
+                if (operator && displayValue) {
+                    number2 = displayValue;
+                    const result = operate(number1, number2, operator);
+                    clearDisplay();
+                    display.textContent = result;
+                    displayValue = result;
+                }
+                break;
             case "button-del":
                 clearDisplay();
                 break;
