@@ -50,6 +50,10 @@ body {
     align-items: center;
 }
 
+.button-filler {
+    background-color: darkgrey;
+}
+
 #button-del {
     font-size: 30px;
     background-color: rgba(255, 0, 0, 0.753);
