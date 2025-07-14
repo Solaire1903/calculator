@@ -83,6 +83,10 @@ buttonGrid.addEventListener("click", (e) => {
     else {
         switch (target.id) {     
             case "button-decimal":
+                if (displayValue === null || display.textContent.includes('.')) {
+                    return;
+                }
+                
                 const content = display.textContent + '.';
                 updateDisplay(content);
                 break;
