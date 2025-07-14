@@ -39,7 +39,7 @@ function updateDisplay(content) {
         displayValue = null;
     }
     else {
-        displayValue = parseInt(content);
+        displayValue = parseFloat(content);
     }
 }
 
