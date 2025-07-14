@@ -87,8 +87,14 @@ buttonGrid.addEventListener("click", (e) => {
                     return;
                 }
                 
-                const content = display.textContent + '.';
-                updateDisplay(content);
+                const contentDecimal = display.textContent + '.';
+                updateDisplay(contentDecimal);
+                break;
+
+            case "button-backspace":
+                const contentBackspace = display.textContent.slice(0, -1);
+                updateDisplay(contentBackspace);
+                console.log(displayValue)
                 break;
 
             case "button-equals":
