@@ -94,7 +94,6 @@ buttonGrid.addEventListener("click", (e) => {
             case "button-backspace":
                 const contentBackspace = display.textContent.slice(0, -1);
                 updateDisplay(contentBackspace);
-                console.log(displayValue)
                 break;
 
             case "button-equals":
