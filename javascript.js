@@ -82,6 +82,11 @@ buttonGrid.addEventListener("click", (e) => {
     }
     else {
         switch (target.id) {     
+            case "button-decimal":
+                const content = display.textContent + '.';
+                updateDisplay(content);
+                break;
+
             case "button-equals":
                 if (operator !== "" && displayValue !== null) {
                     number2 = displayValue;
@@ -96,6 +101,7 @@ buttonGrid.addEventListener("click", (e) => {
                     updateDisplay(result);
                 }
                 break;
+
             case "button-del":
                 clearCalculatorState();
                 break;
