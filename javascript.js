@@ -110,7 +110,8 @@ let displayValue = null;
 
 const display = document.querySelector("#display");
 const buttonGrid = document.querySelector("#button-container");
-//Event for clicking the buttons
+
+//Event handler for clicking the buttons
 buttonGrid.addEventListener("click", (event) => {
     const target = event.target;
 
