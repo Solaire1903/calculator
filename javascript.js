@@ -75,6 +75,21 @@ function addDecimalToDisplay() {
     updateDisplay(contentDecimal);
 }
 
+function showResult() {
+    if (operator !== "" && displayValue !== null) {
+        number2 = displayValue;
+        if (operator === "/" && number2 === 0) {
+            alert("Don't divide by zero!");
+            clearCalculatorState();
+            return;
+        }
+        result = operate(number1, number2, operator);
+        result = Math.round(result * 100) / 100;
+        clearCalculatorState();
+        updateDisplay(result);
+    }
+}
+
 function removeLastInput() {
     const newContent = display.textContent.slice(0, -1);
     updateDisplay(newContent);
@@ -116,18 +131,7 @@ buttonGrid.addEventListener("click", (event) => {
                 break;
 
             case "button-equals":
-                if (operator !== "" && displayValue !== null) {
-                    number2 = displayValue;
-                    if (operator === "/" && number2 === 0) {
-                        alert("Don't divide by zero!");
-                        clearCalculatorState();
-                        return;
-                    }
-                    result = operate(number1, number2, operator);
-                    result = Math.round(result * 100) / 100;
-                    clearCalculatorState();
-                    updateDisplay(result);
-                }
+                showResult();
                 break;
 
             case "button-del":
@@ -151,18 +155,7 @@ document.addEventListener("keydown", (event) => {
                 addDecimalToDisplay();
                 break;
             case "Enter":
-                if (operator !== "" && displayValue !== null) {
-                    number2 = displayValue;
-                    if (operator === "/" && number2 === 0) {
-                        alert("Don't divide by zero!");
-                        clearCalculatorState();
-                        return;
-                    }
-                    result = operate(number1, number2, operator);
-                    result = Math.round(result * 100) / 100;
-                    clearCalculatorState();
-                    updateDisplay(result);
-                }
+                showResult();
                 break;
             case "Backspace":
                 removeLastInput();
