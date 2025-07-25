@@ -152,4 +152,8 @@ document.addEventListener("keydown", (e) => {
             updateDisplay(result);
         }
     }
+    else if (e.key === "Backspace") {
+        const contentBackspace = display.textContent.slice(0, -1);
+        updateDisplay(contentBackspace);
+    }
 })
