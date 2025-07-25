@@ -43,6 +43,17 @@ function updateDisplay(content) {
     }
 }
 
+function addDigitToDisplay(event) {
+    if (result !== null) {
+        clearCalculatorState();
+        result = null;
+    }
+    let content = display.textContent;
+    if (event.type === "click") content += event.target.textContent;
+    else if (event.type === "keydown") content += event.key;
+    updateDisplay(content);
+}
+
 function addDecimalToDisplay() {
     if (displayValue === null || display.textContent.includes('.')) {
         return;
@@ -68,16 +79,11 @@ let displayValue = null;
 const display = document.querySelector("#display");
 const buttonGrid = document.querySelector("#button-container");
 //Event for clicking the buttons
-buttonGrid.addEventListener("click", (e) => {
-    const target = e.target;
+buttonGrid.addEventListener("click", (event) => {
+    const target = event.target;
 
     if (target.classList.contains("button-digit")) {
-        if (result !== null) {
-            clearCalculatorState();
-            result = null;
-        }
-        const content = display.textContent + target.textContent;
-        updateDisplay(content);
+        addDigitToDisplay(event);
     }
     else if (target.classList.contains("button-operator")) {
         if (operator !== "" || displayValue === null) {
@@ -123,27 +129,22 @@ buttonGrid.addEventListener("click", (e) => {
 });
 
 //Keyboard support
-document.addEventListener("keydown", (e) => {
-    if (e.key >= "0" && e.key <= "9") {
-        if (result !== null) {
-            clearCalculatorState();
-            result = null;
-        }
-        const content = display.textContent + e.key;
-        updateDisplay(content);
+document.addEventListener("keydown", (event) => {
+    if (event.key >= "0" && event.key <= "9") {
+        addDigitToDisplay(event);
     }
-    else if ("+-*/".includes(e.key)) {
+    else if ("+-*/".includes(event.key)) {
         if (operator !== "" || displayValue === null) {
             return;
         }
 
         result = null;
         number1 = displayValue;
-        operator = e.key;
+        operator = event.key;
         updateDisplay("");
     }
     else {
-        switch (e.key) {
+        switch (event.key) {
             case ".":
                 addDecimalToDisplay();
                 break;
