@@ -75,6 +75,11 @@ function addDecimalToDisplay() {
     updateDisplay(contentDecimal);
 }
 
+function removeLastInput() {
+    const newContent = display.textContent.slice(0, -1);
+    updateDisplay(newContent);
+}
+
 function clearCalculatorState() {
     number1 = null;
     number2 = null;
@@ -107,8 +112,7 @@ buttonGrid.addEventListener("click", (event) => {
                 break;
 
             case "button-backspace":
-                const contentBackspace = display.textContent.slice(0, -1);
-                updateDisplay(contentBackspace);
+                removeLastInput();
                 break;
 
             case "button-equals":
@@ -161,8 +165,7 @@ document.addEventListener("keydown", (event) => {
                 }
                 break;
             case "Backspace":
-                const contentBackspace = display.textContent.slice(0, -1);
-                updateDisplay(contentBackspace);
+                removeLastInput();
                 break;
         }
     }
