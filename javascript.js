@@ -117,3 +117,15 @@ buttonGrid.addEventListener("click", (e) => {
         }
     }
 });
+
+//Keyboard support
+document.addEventListener("keydown", (e) => {
+    if (e.key >= "0" && e.key <= "9") {
+        if (result !== null) {
+            clearCalculatorState();
+            result = null;
+        }
+        const content = display.textContent + e.key;
+        updateDisplay(content);
+    }
+})
