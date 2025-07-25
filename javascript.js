@@ -128,4 +128,14 @@ document.addEventListener("keydown", (e) => {
         const content = display.textContent + e.key;
         updateDisplay(content);
     }
+    else if ("+-*/".includes(e.key)) {
+        if (operator !== "" || displayValue === null) {
+            return;
+        }
+
+        result = null;
+        number1 = displayValue;
+        operator = e.key;;
+        updateDisplay("");
+    }
 })
