@@ -138,4 +138,18 @@ document.addEventListener("keydown", (e) => {
         operator = e.key;;
         updateDisplay("");
     }
+    else if (e.key === "Enter") {
+        if (operator !== "" && displayValue !== null) {
+            number2 = displayValue;
+            if (operator === "/" && number2 === 0) {
+                alert("Don't divide by zero!");
+                clearCalculatorState();
+                return;
+            }
+            result = operate(number1, number2, operator);
+            result = Math.round(result * 100) / 100;
+            clearCalculatorState();
+            updateDisplay(result);
+        }
+    }
 })
