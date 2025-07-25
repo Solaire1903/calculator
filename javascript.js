@@ -54,6 +54,18 @@ function addDigitToDisplay(event) {
     updateDisplay(content);
 }
 
+function registerOperator(event) {
+    if (operator !== "" || displayValue === null) {
+            return;
+        }
+
+        result = null;
+        number1 = displayValue;
+        if (event.type === "click") operator = event.target.textContent;
+        else if (event.type === "keydown") operator = event.key;
+        updateDisplay("");
+}
+
 function addDecimalToDisplay() {
     if (displayValue === null || display.textContent.includes('.')) {
         return;
@@ -86,14 +98,7 @@ buttonGrid.addEventListener("click", (event) => {
         addDigitToDisplay(event);
     }
     else if (target.classList.contains("button-operator")) {
-        if (operator !== "" || displayValue === null) {
-            return;
-        }
-
-        result = null;
-        number1 = displayValue;
-        operator = target.textContent;
-        updateDisplay("");
+        registerOperator(event);
     }
     else {
         switch (target.id) {     
@@ -134,14 +139,7 @@ document.addEventListener("keydown", (event) => {
         addDigitToDisplay(event);
     }
     else if ("+-*/".includes(event.key)) {
-        if (operator !== "" || displayValue === null) {
-            return;
-        }
-
-        result = null;
-        number1 = displayValue;
-        operator = event.key;
-        updateDisplay("");
+        registerOperator(event);
     }
     else {
         switch (event.key) {
