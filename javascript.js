@@ -135,25 +135,29 @@ document.addEventListener("keydown", (e) => {
 
         result = null;
         number1 = displayValue;
-        operator = e.key;;
+        operator = e.key;
         updateDisplay("");
     }
-    else if (e.key === "Enter") {
-        if (operator !== "" && displayValue !== null) {
-            number2 = displayValue;
-            if (operator === "/" && number2 === 0) {
-                alert("Don't divide by zero!");
-                clearCalculatorState();
-                return;
-            }
-            result = operate(number1, number2, operator);
-            result = Math.round(result * 100) / 100;
-            clearCalculatorState();
-            updateDisplay(result);
+    else {
+        switch (e.key) {
+            case "Enter":
+                if (operator !== "" && displayValue !== null) {
+                    number2 = displayValue;
+                    if (operator === "/" && number2 === 0) {
+                        alert("Don't divide by zero!");
+                        clearCalculatorState();
+                        return;
+                    }
+                    result = operate(number1, number2, operator);
+                    result = Math.round(result * 100) / 100;
+                    clearCalculatorState();
+                    updateDisplay(result);
+                }
+                break;
+            case "Backspace":
+                const contentBackspace = display.textContent.slice(0, -1);
+                updateDisplay(contentBackspace);
+                break;
         }
     }
-    else if (e.key === "Backspace") {
-        const contentBackspace = display.textContent.slice(0, -1);
-        updateDisplay(contentBackspace);
-    }
-})
+});
