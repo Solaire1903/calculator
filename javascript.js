@@ -140,6 +140,14 @@ document.addEventListener("keydown", (e) => {
     }
     else {
         switch (e.key) {
+            case ".":
+                if (displayValue === null || display.textContent.includes('.')) {
+                    return;
+                }
+                
+                const contentDecimal = display.textContent + '.';
+                updateDisplay(contentDecimal);
+                break;
             case "Enter":
                 if (operator !== "" && displayValue !== null) {
                     number2 = displayValue;
