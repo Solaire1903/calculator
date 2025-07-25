@@ -43,6 +43,15 @@ function updateDisplay(content) {
     }
 }
 
+function addDecimalToDisplay() {
+    if (displayValue === null || display.textContent.includes('.')) {
+        return;
+    }
+    
+    const contentDecimal = display.textContent + '.';
+    updateDisplay(contentDecimal);
+}
+
 function clearCalculatorState() {
     number1 = null;
     number2 = null;
@@ -83,12 +92,7 @@ buttonGrid.addEventListener("click", (e) => {
     else {
         switch (target.id) {     
             case "button-decimal":
-                if (displayValue === null || display.textContent.includes('.')) {
-                    return;
-                }
-                
-                const contentDecimal = display.textContent + '.';
-                updateDisplay(contentDecimal);
+                addDecimalToDisplay();
                 break;
 
             case "button-backspace":
@@ -141,12 +145,7 @@ document.addEventListener("keydown", (e) => {
     else {
         switch (e.key) {
             case ".":
-                if (displayValue === null || display.textContent.includes('.')) {
-                    return;
-                }
-                
-                const contentDecimal = display.textContent + '.';
-                updateDisplay(contentDecimal);
+                addDecimalToDisplay();
                 break;
             case "Enter":
                 if (operator !== "" && displayValue !== null) {
